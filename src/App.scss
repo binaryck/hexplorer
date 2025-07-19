@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+$neon-cyan: #00ffe7;
+$neon-pink: #ff00cc;
+$bg-color: #0b0c10;
+$text-color: #e0ffff;
+$neon-blue: #00c2ff;
+$neon-purple: #a600ff;
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", cursive;
+  background-color: $bg-color;
+  color: $text-color;
+  overflow: hidden;
+}
+
+.App {
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, $neon-pink 1px, transparent 1px),
+    radial-gradient(circle, $neon-cyan 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: pulseGrid 10s infinite linear, rotateGrid 60s infinite linear;
+  z-index: 0;
+}
+
+@keyframes pulseGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@keyframes rotateGrid {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.App-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(10, 10, 20, 0.9);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0, 255, 231, 0.3);
+  animation: pulseGlow 5s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 231, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(0, 255, 231, 0.6);
+  }
+}
+
+.title {
+  font-size: 1.8rem;
+  color: $neon-pink;
+  text-shadow: 0 0 10px $neon-pink, 0 0 20px $neon-pink, 0 0 40px $neon-purple;
+  animation: neonTextGlow 1.5s infinite alternate;
+}
+
+@keyframes neonTextGlow {
+  0% {
+    text-shadow: 0 0 5px $neon-pink, 0 0 10px $neon-pink, 0 0 20px $neon-cyan;
+  }
+  100% {
+    text-shadow: 0 0 15px $neon-pink, 0 0 25px $neon-pink, 0 0 40px $neon-blue;
+  }
+}
+
+.ipfs-input {
+  width: 350px;
+  padding: 12px;
+  font-family: "Press Start 2P", cursive;
+  background-color: #111;
+  border: 2px solid $neon-cyan;
+  color: $text-color;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 255, 231, 0.6);
+  transition: all 0.4s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 18px $neon-cyan, 0 0 30px $neon-blue;
+  }
+
+  &::placeholder {
+    color: $neon-cyan;
+  }
+}
+
+.pixel-button {
+  padding: 16px 32px;
+  font-family: "Press Start 2P", cursive;
+  background-color: transparent;
+  color: $neon-cyan;
+  border: 2px solid $neon-cyan;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 12px $neon-cyan;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $neon-cyan;
+    color: #000;
+    box-shadow: 0 0 24px $neon-cyan, 0 0 48px $neon-blue;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
